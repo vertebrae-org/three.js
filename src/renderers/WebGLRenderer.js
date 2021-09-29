@@ -1390,7 +1390,7 @@ function WebGLRenderer( parameters = {} ) {
 
 		materialProperties.environment = material.isMeshStandardMaterial ? scene.environment : null;
 		materialProperties.fog = scene.fog;
-		materialProperties.envMap = ( material.isMeshStandardMaterial ? cubeuvmaps : cubemaps ).get( material.envMap || materialProperties.environment );
+		materialProperties.envMap = cubemaps.get( material.envMap || materialProperties.environment );
 
 		if ( programs === undefined ) {
 
@@ -1509,7 +1509,7 @@ function WebGLRenderer( parameters = {} ) {
 		const fog = scene.fog;
 		const environment = material.isMeshStandardMaterial ? scene.environment : null;
 		const encoding = ( _currentRenderTarget === null ) ? _this.outputEncoding : _currentRenderTarget.texture.encoding;
-		const envMap = ( material.isMeshStandardMaterial ? cubeuvmaps : cubemaps ).get( material.envMap || environment );
+		const envMap = cubemaps.get( material.envMap || environment );
 		const vertexAlphas = material.vertexColors === true && !! object.geometry && !! object.geometry.attributes.color && object.geometry.attributes.color.itemSize === 4;
 		const vertexTangents = !! object.geometry && !! object.geometry.attributes.tangent;
 		const morphTargets = !! object.geometry && !! object.geometry.morphAttributes.position;

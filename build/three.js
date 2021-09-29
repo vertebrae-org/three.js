@@ -14166,7 +14166,7 @@
 		function getParameters(material, lights, shadows, scene, object) {
 			const fog = scene.fog;
 			const environment = material.isMeshStandardMaterial ? scene.environment : null;
-			const envMap = (material.isMeshStandardMaterial ? cubeuvmaps : cubemaps).get(material.envMap || environment);
+			const envMap = cubemaps.get(material.envMap || environment);
 			const shaderID = shaderIDs[material.type]; // heuristics to create shader parameters according to lights in the scene
 			// (not to blow over maxLights budget)
 
@@ -19429,7 +19429,7 @@
 
 			materialProperties.environment = material.isMeshStandardMaterial ? scene.environment : null;
 			materialProperties.fog = scene.fog;
-			materialProperties.envMap = (material.isMeshStandardMaterial ? cubeuvmaps : cubemaps).get(material.envMap || materialProperties.environment);
+			materialProperties.envMap = cubemaps.get(material.envMap || materialProperties.environment);
 
 			if (programs === undefined) {
 				// new material
@@ -19515,7 +19515,7 @@
 			const fog = scene.fog;
 			const environment = material.isMeshStandardMaterial ? scene.environment : null;
 			const encoding = _currentRenderTarget === null ? _this.outputEncoding : _currentRenderTarget.texture.encoding;
-			const envMap = (material.isMeshStandardMaterial ? cubeuvmaps : cubemaps).get(material.envMap || environment);
+			const envMap = cubemaps.get(material.envMap || environment);
 			const vertexAlphas = material.vertexColors === true && !!object.geometry && !!object.geometry.attributes.color && object.geometry.attributes.color.itemSize === 4;
 			const vertexTangents = !!object.geometry && !!object.geometry.attributes.tangent;
 			const morphTargets = !!object.geometry && !!object.geometry.morphAttributes.position;
