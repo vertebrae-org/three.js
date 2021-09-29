@@ -23664,7 +23664,7 @@ function WebGLRenderer( parameters ) {
 			preserveDrawingBuffer: _preserveDrawingBuffer,
 			powerPreference: _powerPreference,
 			failIfMajorPerformanceCaveat: _failIfMajorPerformanceCaveat,
-			xrCompatible: true
+			// xrCompatible: true
 		};
 
 		// event listeners must be registered before WebGL context is created, see #12753
